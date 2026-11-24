@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>Little Black Cat 🐾</title>
+<meta property="og:title" content="Little Black Cat 🐾">
+<meta property="og:description" content="Un gatito negro tiene algo para ti...">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="moon"></div>
+  <canvas id="stage"></canvas>
+
+  <!-- Burbuja de diálogo (posición controlada por JS) -->
+  <div id="bubble"><div class="bb" id="bubbleText"></div></div>
+
+  <!-- Pantalla inicial -->
+  <div class="intro" id="intro">
+    <p>Hola linda, tengo algo para ti 🐾</p>
+    <button class="btn" id="startBtn">Ven a jugar conmigo ♡</button>
+  </div>
+
+  <!-- Controles discretos -->
+  <div class="ctrls" id="ctrls">
+    <button id="soundBtn" aria-label="Sonido">🔊</button>
+    <button id="petBtn" aria-label="Acariciar">♡</button>
+    <button id="resetBtn" aria-label="Reiniciar">↺</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

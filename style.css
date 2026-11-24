@@ -1,0 +1,40 @@
+/* Little Black Cat — estilos (ambiente nocturno y acogedor) */
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;position:fixed;overscroll-behavior:none}
+body{
+  background:radial-gradient(ellipse at 50% 105%,#15224f 0%,#0a1030 45%,#04050d 100%);
+  font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;color:#e8ecff;
+  user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;
+}
+#stage{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none}
+
+/* Luna discreta */
+.moon{position:fixed;top:calc(env(safe-area-inset-top,0px) + 5vh);right:9vw;width:52px;height:52px;border-radius:50%;
+  box-shadow:inset -15px -5px 0 0 #f6efc8,0 0 26px 3px rgba(246,239,200,.22);transform:rotate(-20deg);opacity:.9;pointer-events:none}
+
+/* Pantalla inicial */
+.intro{position:fixed;left:0;right:0;top:61%;display:flex;flex-direction:column;align-items:center;gap:20px;padding:0 24px;text-align:center;
+  transition:opacity .9s ease,transform .9s ease}
+.intro.hide{opacity:0;transform:translateY(26px);pointer-events:none}
+.intro p{margin:0;font-size:clamp(18px,5vw,25px);font-weight:700;text-shadow:0 0 14px rgba(150,170,255,.55)}
+.btn{font:inherit;font-weight:800;font-size:18px;color:#3a1633;background:linear-gradient(#ffd96a,#ffb53b);border:0;border-radius:999px;
+  padding:15px 30px;min-height:54px;cursor:pointer;box-shadow:0 5px 0 #b87413,0 0 26px rgba(255,200,80,.35);animation:pulse 2.2s ease-in-out infinite}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #b87413}
+@keyframes pulse{50%{transform:scale(1.05)}}
+
+/* Controles */
+.ctrls{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);transform:translateX(-50%);display:flex;gap:16px;
+  opacity:0;pointer-events:none;transition:opacity .9s ease .3s}
+.ctrls.on{opacity:1;pointer-events:auto}
+.ctrls button{width:56px;height:56px;border-radius:50%;border:2px solid rgba(160,180,255,.35);background:rgba(20,28,64,.7);color:#fff;
+  font-size:23px;line-height:1;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.ctrls button:active{transform:scale(.92)}
+
+/* Burbuja de diálogo */
+#bubble{position:fixed;left:0;top:0;pointer-events:none;will-change:transform}
+.bb{position:relative;max-width:230px;padding:10px 15px;background:#fff8e8;color:#2b2140;border:3px solid #2b2140;border-radius:14px;
+  font-weight:800;font-size:16px;text-align:center;box-shadow:0 4px 0 rgba(0,0,0,.35);
+  opacity:0;transform:scale(.4) translateY(10px);transform-origin:50% 100%;
+  transition:opacity .22s ease,transform .32s cubic-bezier(.3,1.7,.5,1)}
+.bb::after{content:"";position:absolute;left:50%;bottom:-11px;margin-left:-8px;border:8px solid transparent;border-top:9px solid #2b2140;border-bottom:0}
+#bubble.show .bb{opacity:1;transform:none}
